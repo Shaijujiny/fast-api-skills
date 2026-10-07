@@ -33,7 +33,7 @@ templates/
 2. Copy `templates/CLAUDE.md` to the project root and fill in the application profile(s).
 3. Copy `.claude/` into the project (see Install).
 
-The starter's tests pass (23 tests, run locally with Python 3.11). The Docker and CI templates in `fastapi-deploy-ci` have had their YAML syntax checked but have not been run.
+The starter is complete: login with access and refresh tokens (rotation and reuse detection), rate limiting and lockout, DB-backed roles and permissions, tenant scoping, error handling and health endpoints. Verified locally: 45 tests pass (Python 3.11), ruff is clean, Alembic upgrade and downgrade work, and the Dockerfile builds and runs (non-root, healthy, graceful stop). The `docker-compose.yml` passes `docker compose config` once `.env.example` is copied to `.env`. The GitHub and GitLab CI files have had their YAML syntax checked but have not been run on a real runner.
 
 ## Install
 

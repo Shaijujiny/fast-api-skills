@@ -24,3 +24,9 @@ def test_locale_files_have_matching_keys():
     base = catalogs["en"]
     for lang, keys in catalogs.items():
         assert keys == base, f"{lang} differs from en: {keys ^ base}"
+
+
+def test_live_and_ready(client):
+    assert client.get("/health/live").status_code == 200
+    r = client.get("/health/ready")
+    assert r.status_code == 200 and r.json()["data"]["database"] == "ok"

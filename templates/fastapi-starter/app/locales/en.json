@@ -20,5 +20,15 @@
   "conflict": "This conflicts with existing data",
   "payload_too_large": "Request is too large",
   "too_many_requests": "Too many requests, try again later",
-  "service_unavailable": "Service temporarily unavailable"
+  "service_unavailable": "Service temporarily unavailable",
+  "invalid_refresh_token": "Invalid or expired refresh token",
+  "token_refreshed": "Token refreshed",
+  "logout_success": "Logged out",
+  "password_changed": "Password changed",
+  "invalid_current_password": "Current password is incorrect",
+  "user_role_updated": "User role updated",
+  "roles_fetched": "Roles fetched",
+  "role_updated": "Role permissions updated",
+  "role_not_found": "Role not found",
+  "role_locked": "This role cannot be modified"
 }

@@ -20,5 +20,15 @@
   "conflict": "يتعارض هذا مع بيانات موجودة",
   "payload_too_large": "حجم الطلب كبير جدا",
   "too_many_requests": "طلبات كثيرة جدا، حاول لاحقا",
-  "service_unavailable": "الخدمة غير متاحة مؤقتا"
+  "service_unavailable": "الخدمة غير متاحة مؤقتا",
+  "invalid_refresh_token": "رمز التحديث غير صالح أو منتهي الصلاحية",
+  "token_refreshed": "تم تحديث الرمز",
+  "logout_success": "تم تسجيل الخروج",
+  "password_changed": "تم تغيير كلمة المرور",
+  "invalid_current_password": "كلمة المرور الحالية غير صحيحة",
+  "user_role_updated": "تم تحديث دور المستخدم",
+  "roles_fetched": "تم جلب الأدوار",
+  "role_updated": "تم تحديث صلاحيات الدور",
+  "role_not_found": "الدور غير موجود",
+  "role_locked": "لا يمكن تعديل هذا الدور"
 }

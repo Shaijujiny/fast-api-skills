@@ -20,6 +20,10 @@ class UserCreateRequest(BaseSchema):
         return v
 
 
+class UserRoleUpdateRequest(BaseSchema):
+    role: Role
+
+
 class UserResponse(BaseSchema):
     """Client-facing id is public_id; the DB id and hashed_password never leave the server."""
 

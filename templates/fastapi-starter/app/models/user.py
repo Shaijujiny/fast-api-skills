@@ -1,13 +1,15 @@
 import uuid
+from datetime import datetime
 from enum import StrEnum
 
-from sqlalchemy import String
+from sqlalchemy import DateTime, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base, TimestampMixin
 
 
 class Role(StrEnum):
+    SUPER_ADMIN = "super_admin"
     ADMIN = "admin"
     STAFF = "staff"
     USER = "user"
@@ -28,7 +30,6 @@ class User(TimestampMixin, Base):
     hashed_password: Mapped[str] = mapped_column(String(255), nullable=False)
     role: Mapped[str] = mapped_column(String(32), nullable=False, default=Role.USER.value)
     status: Mapped[str] = mapped_column(String(32), nullable=False, default=UserStatus.ACTIVE.value, index=True)
-
-    @property
-    def role_enum(self) -> Role:
-        return Role(self.role)
+    organization_id: Mapped[int | None] = mapped_column(ForeignKey("organizations.id", ondelete="RESTRICT"), index=True)
+    failed_login_count: Mapped[int] = mapped_column(nullable=False, default=0, server_default="0")
+    locked_until: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
