@@ -37,7 +37,7 @@ def seed_defaults(db: Session) -> None:
 
 
 if __name__ == "__main__":
-    from app.core.database import SessionLocal
+    from app.database import SessionLocal
 
     with SessionLocal() as session:
         seed_defaults(session)

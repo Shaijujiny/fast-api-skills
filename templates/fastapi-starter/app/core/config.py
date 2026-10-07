@@ -1,6 +1,7 @@
 """All configuration comes from environment variables / .env (blueprint ch. 8)."""
 
 from functools import lru_cache
+from typing import Literal
 
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -10,7 +11,8 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     app_name: str = "fastapi-starter"
-    database_url: str = "sqlite:///./app.db"
+    db_type: Literal["mysql", "postgresql"] = "mysql"  # SQL backend; see app/database/
+    database_url: str | None = None  # full-URL override (sqlite for dev/tests)
     secret_key: SecretStr = Field(min_length=16)  # required, no default
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 15

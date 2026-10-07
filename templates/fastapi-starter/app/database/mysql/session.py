@@ -3,9 +3,13 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from app.core.config import get_settings
+from app.database.mysql.config import MysqlSettings, get_url
 
-_url = get_settings().database_url
-_kwargs = {"connect_args": {"check_same_thread": False}} if _url.startswith("sqlite") else {"pool_recycle": 1800}
+_url = get_url()
+if _url.startswith("sqlite"):
+    _kwargs = {"connect_args": {"check_same_thread": False}}
+else:
+    _s = MysqlSettings()
+    _kwargs = {"pool_recycle": 1800, "pool_size": _s.pool_size, "max_overflow": _s.max_overflow}
 engine = create_engine(_url, pool_pre_ping=True, **_kwargs)
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)

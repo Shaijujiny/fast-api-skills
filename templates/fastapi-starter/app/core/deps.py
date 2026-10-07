@@ -8,7 +8,7 @@ from fastapi import Depends, Header, Request, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import Session
 
-from app.core.database import SessionLocal
+from app.database import SessionLocal
 from app.core.exceptions import AppException, ErrorCode
 from app.core.i18n import get_messages, resolve_language
 from app.core.rate_limit import client_ip

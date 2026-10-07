@@ -15,14 +15,15 @@ make test                   # pytest -q
 make lint                   # ruff
 ```
 
-`DATABASE_URL` selects the database: `sqlite:///./app.db` (dev/tests), `mysql+pymysql://...` or
-`postgresql+psycopg://...` (prod; install the driver, see `requirements.txt`).
+`DB_TYPE` (`mysql` | `postgresql`) selects the SQL backend; its settings live in `app/database/<db>/config.py` (`MYSQL_*` / `POSTGRESQL_*` env vars).
+`DATABASE_URL` overrides with a full URL (`sqlite:///./app.db` for dev/tests). Install the driver, see `requirements.txt`.
+MongoDB (`app/database/mongodb/`) is opt-in and separate from the SQL stack.
 
 `make migrate` also seeds the default roles (`super_admin`, `admin`, `staff`, `user`) and their permissions
 (`python -m app.core.seed` does the same idempotently). Create the first super admin (no public signup):
 
 ```bash
-python -c "from app.core.database import SessionLocal as S; from app.models import User; from app.core.security import hash_password as h; \
+python -c "from app.database import SessionLocal as S; from app.models import User; from app.core.security import hash_password as h; \
 db=S(); db.add(User(email='admin@example.com', name='Admin', hashed_password=h('change-me-now'), role='super_admin')); db.commit()"
 ```
 
@@ -33,6 +34,7 @@ db=S(); db.add(User(email='admin@example.com', name='Admin', hashed_password=h('
 | `app/api/<feature>/{router,schemas,service}.py` | HTTP layer / DTOs / business logic (service commits once) |
 | `app/repositories/` | the only place that queries the DB; `base.py` has `Scope` and the `ScopedRepository` mixin (tenant filter) |
 | `app/models/` | SQLAlchemy tables: users, organizations, roles/permissions/role_permissions, refresh_tokens |
+| `app/database/` | one package per database: `mysql/`, `postgresql/` (config, base, session), `mongodb/` (client, config, models); `__init__` switches on `DB_TYPE` |
 | `app/core/` | config, security (JWT, hashing, refresh-token hashing, cached RBAC resolver), `rate_limit.py` (pluggable memory/Redis limiter), `seed.py` (default roles/permissions), exceptions, deps, i18n, logging |
 | `app/schemas/common.py` | `BaseSchema` (camelCase wire), `ApiResponse[T]`, pagination |
 | `app/integrations/` | one client per external provider (stub included) |
