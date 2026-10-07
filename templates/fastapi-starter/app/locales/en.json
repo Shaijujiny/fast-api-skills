@@ -1,0 +1,18 @@
+{
+  "success": "Success",
+  "not_found": "Resource not found",
+  "validation_error": "Invalid input",
+  "system_error": "Something went wrong",
+  "unauthorized": "Authentication required",
+  "forbidden": "You do not have permission to do this",
+  "user_inactive": "This account is not active",
+  "invalid_credentials": "Invalid email or password",
+  "login_success": "Login successful",
+  "user_not_found": "User not found",
+  "user_created": "User created",
+  "users_fetched": "Users fetched",
+  "user_fetched": "User fetched",
+  "email_exists": "A user with this email already exists",
+  "password_too_short": "Password must be at least 8 characters",
+  "health_ok": "Service is healthy"
+}

@@ -7,18 +7,32 @@ Stack: FastAPI, Pydantic v2, SQLAlchemy 2.x, Alembic, MySQL or PostgreSQL, pytes
 ## What is inside
 
 ```
-.claude/skills/
-  fastapi-blueprint/     master standard: 17 chapters (architecture, API, schemas, DB,
-                         security, testing, git, review, RBAC, lessons, app profiles)
-  fastapi-conventions/   new-project setup and backend coding conventions
-  task-plan/             Stage 0: task implementation plan
-  impact-analysis/       Stage 1: developer impact analysis
-  unit-testing/          Stage 2: unit testing checklist
-  pr-review/             Stage 3: pull request review with Approved Yes/No gate
-  app-code-review/       deep per-file code review
+.claude/
+  skills/
+    fastapi-blueprint/                master standard, 17 chapters (+ ch. 17 app profiles:
+                                      fintech, assessment, interview, transport)
+    fastapi-conventions/              new-project setup and backend coding conventions
+    task-plan/ impact-analysis/       workflow: plan (0) -> impact (1) ->
+    unit-testing/ pr-review/          tests (2) -> PR review (3, Approved Yes/No)
+    app-code-review/                  deep per-file code review
+    fastapi-auth/                     JWT, refresh, passwords, OTP, OAuth/SSO
+    fastapi-security-checklist/       OWASP API Top 10 PR checklist, per-portal notes
+    fastapi-deploy-ci/                Dockerfile, compose, GitHub/GitLab CI, pre-commit
+    fastapi-observability/            logging, metrics, tracing, health, alerts
+    fastapi-background-and-realtime/  jobs, files, exports, WebSocket/SSE, outbox, webhooks
+  commands/                           /new-endpoint /new-migration /new-feature /pre-pr-check
+templates/
+  CLAUDE.md                           copy into a new project and fill in
+  fastapi-starter/                    runnable starter app (auth, users, RBAC, Alembic, tests)
 ```
 
-The four stage skills form a workflow: plan, build, test, review. `fastapi-blueprint` is the standard they all point to, and its chapter 17 lists the extra rules for each application type.
+## Start a new project
+
+1. Copy `templates/fastapi-starter/` as the new project, then follow its README (`make test`, `make run`).
+2. Copy `templates/CLAUDE.md` to the project root and fill in the application profile(s).
+3. Copy `.claude/` into the project (see Install).
+
+The starter's tests pass (13 tests, run locally with Python 3.11). The Docker and CI templates in `fastapi-deploy-ci` have had their YAML syntax checked but have not been run.
 
 ## Install
 
@@ -27,6 +41,7 @@ Per project (shared with the team through git):
 ```bash
 mkdir -p .claude/skills
 cp -r path/to/fast-api-skills/.claude/skills/* .claude/skills/
+cp -r path/to/fast-api-skills/.claude/commands .claude/
 ```
 
 For all your projects:
