@@ -26,6 +26,7 @@ def create_app() -> FastAPI:
     @app.middleware("http")
     async def request_id_middleware(request: Request, call_next):
         rid = request.headers.get("X-Request-ID") or uuid.uuid4().hex
+        request.state.request_id = rid
         token = request_id_ctx.set(rid)
         try:
             response = await call_next(request)

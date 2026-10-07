@@ -53,7 +53,7 @@ no secrets in logs, money as `Decimal` / `Numeric(18, 2)` (never `float`).
 ## Blueprint chapters to read
 
 `.claude/skills/fastapi-blueprint/references/`: 03 architecture, 04 API and routing, 05 schemas, 06 logic and data access,
-07 database and transactions, 08 security and integrations, 10 testing, 15 users/roles/privileges (RBAC and data scoping).
+07 database and transactions, 08 security and integrations, 10 testing, 15 users/roles/privileges (RBAC and data scoping), 18 error handling and responses.
 Before opening a PR also read 14 (review and definition of done) and 12 (git).
 
 ## Known simplifications

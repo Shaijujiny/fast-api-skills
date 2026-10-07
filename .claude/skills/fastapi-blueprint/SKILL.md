@@ -27,6 +27,7 @@ This file is the master. Start here. Use the task map below to pick which files 
 | Reviewing a change | [review & DoD](references/14-code-review-and-definition-of-done.md) |
 | Unsure where something belongs | [scope](references/01-purpose-and-scope.md), [principles](references/02-core-engineering-principles.md), [architecture](references/03-architecture-and-design-patterns.md) |
 | Changing a calculation, adding a guard, or fixing a race | [lessons learned](references/16-lessons-learned.md) |
+| Raising, mapping or returning errors, status codes, error codes, response envelope | [error handling & responses](references/18-error-handling-and-responses.md), [API & routing](references/04-api-design-and-routing.md), [schemas](references/05-schemas-validation-serialization.md) |
 | Starting work on a specific app type (fintech, assessment, interview, transport) | [application profiles](references/17-application-profiles.md) |
 
 Open only the files the task needs; they are long. Chapter 17 lists the extra rules per application type; read the profile that matches the app.
@@ -76,6 +77,7 @@ Open only the files the task needs; they are long. Chapter 17 lists the extra ru
 | 15 | [references/15-domain-users-roles-privileges.md](references/15-domain-users-roles-privileges.md) | Users, roles, privileges (RBAC) |
 | 16 | [references/16-lessons-learned.md](references/16-lessons-learned.md) | Lessons learned (general rules) |
 | 17 | [references/17-application-profiles.md](references/17-application-profiles.md) | Application profiles (fintech, assessment, interview, transport) |
+| 18 | [references/18-error-handling-and-responses.md](references/18-error-handling-and-responses.md) | Error handling and responses |
 
 ## Default project layout
 

@@ -9,8 +9,9 @@ Stack: FastAPI, Pydantic v2, SQLAlchemy 2.x, Alembic, MySQL or PostgreSQL, pytes
 ```
 .claude/
   skills/
-    fastapi-blueprint/                master standard, 17 chapters (+ ch. 17 app profiles:
-                                      fintech, assessment, interview, transport)
+    fastapi-blueprint/                master standard, 18 chapters (ch. 17 app profiles:
+                                      fintech, assessment, interview, transport;
+                                      ch. 18 error handling and responses)
     fastapi-conventions/              new-project setup and backend coding conventions
     task-plan/ impact-analysis/       workflow: plan (0) -> impact (1) ->
     unit-testing/ pr-review/          tests (2) -> PR review (3, Approved Yes/No)
@@ -32,7 +33,7 @@ templates/
 2. Copy `templates/CLAUDE.md` to the project root and fill in the application profile(s).
 3. Copy `.claude/` into the project (see Install).
 
-The starter's tests pass (13 tests, run locally with Python 3.11). The Docker and CI templates in `fastapi-deploy-ci` have had their YAML syntax checked but have not been run.
+The starter's tests pass (23 tests, run locally with Python 3.11). The Docker and CI templates in `fastapi-deploy-ci` have had their YAML syntax checked but have not been run.
 
 ## Install
 
